@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProductListItem from './product-list-item';
 
-export default class ProductList extends Component {
+export default class ProductList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,26 +19,23 @@ export default class ProductList extends Component {
       .then(data => {
         this.setState({
           products: data
-        });
+        })
+          .catch(err => console.error(err));
       });
   }
 
   render() {
+    const products = this.state.products.map(product =>
+      <ProductListItem
+        product={product}
+        key={product.productId}
+        handleClick={this.handleClick} />);
+
     return (
-      <div className="row justify-content-around ">
-        {
-          this.state.products.map(product => {
-            return (
-              <ProductListItem
-                key={product.productId}
-                img={product.image}
-                name={product.name}
-                price={product.price}
-                short={product.shortDescription}
-              />
-            );
-          })
-        }
+      <div className="w-50 mx-auto">
+        <div className="row row-cols-1 row-cols-md-3">
+          {products}
+        </div>
       </div>
     );
   }
