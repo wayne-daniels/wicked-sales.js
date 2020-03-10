@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function ProductListItem(props) {
   return (
-    <div className="col-lg-3 mb-4 mx-3 shadow bg-white">
+    <div className="d-flex flex-row align-items-xl-center h-45 col-md-3 mb-4 mx-4 shadow bg-white">
       <div>
         <img src={props.product.image} className="card-img-top h-50" alt={props.product.name} />
-        <div className="card-body">
-          <h3 className="card-title">{props.product.name}</h3>
-          <p className="card-subtitle text-secondary">$ {((props.product.price) * 0.01).toFixed(2)}</p>
-          <p className="card-text">{props.product.shortDescription}</p>
+        <div className="d-flex flex-column justify-content-center card-body">
+          <h3 className="card-title mt-4">{props.product.name}</h3>
+          <p className="card-subtitle text-secondary mt-2">$ {((props.product.price) * 0.01).toFixed(2)}</p>
+          <p className="card-text mt-2">{props.product.shortDescription}</p>
         </div>
       </div>
     </div>
