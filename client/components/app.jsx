@@ -21,7 +21,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="w-100 bg-light">
         <Header />
         <ProductList />
       </div>

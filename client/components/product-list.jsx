@@ -16,12 +16,7 @@ export default class ProductList extends React.Component {
   getProducts() {
     fetch('/api/products')
       .then(res => res.json())
-      .then(data => {
-        this.setState({
-          products: data
-        })
-          .catch(err => console.error(err));
-      });
+      .then(products => this.setState({ products }));
   }
 
   render() {
@@ -32,8 +27,8 @@ export default class ProductList extends React.Component {
         handleClick={this.handleClick} />);
 
     return (
-      <div className="w-50 mx-auto">
-        <div className="row row-cols-1 row-cols-md-3">
+      <div className="w-100">
+        <div className="row row-cols-1 row-cols-md-3 d-flex justify-content-center">
           {products}
         </div>
       </div>

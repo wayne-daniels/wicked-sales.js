@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Header(props) {
   return (
-    <div className="row py-2 bg-dark">
-      <i className="fas fa-dollar-sign fa-lg my-1 mx-1 text-white"></i>
-      <h5 className="text-white">Wicked Sales</h5>
+    <div className="row py-3 bg-dark my-4">
+      <i className="fas fa-dollar-sign fa-lg"/>
+      <h4 className="text-white ml-4"><i className="fas fa-dollar-sign fa-lg mr-2" />Wicked Sales</h4>
     </div>
   );
 }
