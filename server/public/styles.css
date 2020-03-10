@@ -1,0 +1,11 @@
+img {
+  object-fit: contain;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+h4 {
+  padding-left: 8rem;
+}
