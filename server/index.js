@@ -19,6 +19,22 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products/:id', (req, res, next) => {
+  if (req.params.id <= 0) res.sendStatus(400);
+  else {
+    db.query(`
+   select *
+   from   "products"
+   where  "productId" = $1;
+    `, [req.params.id])
+      .then(result => {
+        const row = result.rows[0];
+        if (!row) res.sendStatus(404);
+        else res.json(row);
+      }).catch(err => next(err));
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
