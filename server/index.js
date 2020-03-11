@@ -19,6 +19,12 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products', (req, res, next) => {
+  db.query('select "productId", "name", "price", "image", "shortDescription" from "products"')
+    .then(result => res.json(result.rows))
+    .catch(err => next(err));
+});
+
 app.get('/api/products/:id', (req, res, next) => {
   if (req.params.id <= 0) res.sendStatus(400);
   else {
