@@ -7,6 +7,7 @@ export default class ProductList extends React.Component {
     this.state = {
       products: []
     };
+    this.setViewDetail = this.setViewDetail.bind(this);
   }
 
   componentDidMount() {
@@ -16,7 +17,14 @@ export default class ProductList extends React.Component {
   getProducts() {
     fetch('/api/products')
       .then(res => res.json())
-      .then(products => this.setState({ products }));
+      .then(data => {
+        return this.setState({ products: data });
+      });
+  }
+
+  setViewDetail(event) {
+    const productId = Number(event.currentTarget.getAttribute('id'));
+    this.props.setView('details', { productId });
   }
 
   render() {
@@ -24,6 +32,11 @@ export default class ProductList extends React.Component {
       <ProductListItem
         product={product}
         key={product.productId}
+        name={product.name}
+        price={product.price}
+        shortDescription={product.shortDescription}
+        setViewDetail={this.setViewDetail}
+        productId={product.productId}
         handleClick={this.handleClick} />);
 
     return (

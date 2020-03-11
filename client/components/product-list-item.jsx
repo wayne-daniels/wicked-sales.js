@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ProductListItem(props) {
   return (
-    <div className="d-flex flex-row align-items-xl-center h-45 col-md-3 mb-4 mx-4 shadow bg-white">
+    <div id={props.productId} onClick={props.setViewDetail} style={{ cursor: 'pointer' }} className="hover d-flex flex-row align-items-xl-center h-45 col-md-3 mb-4 mx-4 shadow bg-white">
       <div>
         <img src={props.product.image} className="card-img-top h-50" alt={props.product.name} />
         <div className="d-flex flex-column justify-content-center card-body">
