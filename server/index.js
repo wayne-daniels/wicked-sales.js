@@ -26,8 +26,11 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/products/:id', (req, res, next) => {
-  if (req.params.id <= 0) res.sendStatus(400);
-  else {
+  if (req.params.id <= 0) {
+    return res.status(400).json({
+      error: '"ProductId" is invalid.'
+    });
+  } else {
     db.query(`
    select *
    from   "products"
