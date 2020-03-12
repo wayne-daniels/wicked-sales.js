@@ -40,7 +40,7 @@ export default class App extends React.Component {
       return (
         <div className="w-100 bg-light">
           <Header />
-          <ProductList setView={setView}/>
+          <ProductList setView={setView} />
         </div>
       );
     } if (viewName === 'details') {
