@@ -45,7 +45,28 @@ app.get('/api/products/:id', (req, res, next) => {
 });
 
 app.get('/api/cart', (req, res, next) => {
-//  json[]
+  const sqlExist = `
+  select "c"."cartItemId",
+         "c"."price",
+         "p"."productId",
+         "p"."image",
+         "p"."name",
+         "p"."shortDescription"
+    from "cartItems" as "c"
+    join "products"  as "p" using ("productId")
+   where "c"."cartId" = $1
+  `;
+  if (!req.session.cartId) {
+    return res.json([]);
+  } else {
+    return (
+      db.query(sqlExist, [req.session.cartId])
+        .then(result => {
+          const cartContent = result.rows;
+          res.status(200).json(cartContent);
+        })
+    );
+  }
 });
 
 app.post('/api/cart', (req, res, next) => {
@@ -110,15 +131,15 @@ app.post('/api/cart', (req, res, next) => {
       .then(result => {
         const cartItemId = result;
         const cartItemInformationSQL = `
-    select "cartItems"."cartItemId",
-           "cartItems"."price",
-           "products"."productId",
-           "products"."image",
-           "products"."name,
-           "products"."shortDescription"
-      from "cartItems"
-      join "products" using ("productId")
-     where "cartItems"."cartItemId" = $1
+    select "c"."cartItemId",
+           "c"."price",
+           "p"."productId",
+           "p"."image",
+           "p"."name,
+           "p"."shortDescription"
+      from "cartItems" as "c"
+      join "products" as "p" using ("productId")
+     where "c"."cartItemId" = $1
      `;
         return (
           db.query(cartItemInformationSQL, [cartItemId])

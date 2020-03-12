@@ -9,3 +9,7 @@ p {
 h4 {
   padding-left: 8rem;
 }
+
+.hover {
+  cursor:pointer;
+}
