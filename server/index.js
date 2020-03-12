@@ -79,7 +79,6 @@ app.post('/api/cart', (req, res, next) => {
   where  "productId" = $1
   `;
   const value = [productId];
-
   db.query(sql, value)
     .then(result => {
       if (!result.rows[0]) {
