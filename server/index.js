@@ -56,11 +56,12 @@ app.get('/api/cart/', (req, res, next) => {
     join "products"  as "p" using ("productId")
    where "c"."cartId" = $1
   `;
+  if (!req.session.cartId) return res.json([]);
   const value = [req.session.cartId];
   db.query(sql, value)
     .then(result => {
       const data = result.rows;
-      res.status(201).json(data);
+      res.status(200).json(data);
     })
     .catch(err => next(err));
 });
