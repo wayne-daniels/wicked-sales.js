@@ -44,8 +44,9 @@ app.get('/api/products/:id', (req, res, next) => {
   }
 });
 
-app.get('/api/cart', (req, res, next) => {
-  const sqlExist = `
+app.get('/api/cart/', (req, res, next) => {
+  // if (!('cartId' in req.session)) return [];
+  const text = `
   select "c"."cartItemId",
          "c"."price",
          "p"."productId",
@@ -56,21 +57,14 @@ app.get('/api/cart', (req, res, next) => {
     join "products"  as "p" using ("productId")
    where "c"."cartId" = $1
   `;
-  if (!req.session.cartId) {
-    return res.json([]);
-  } else {
-    return (
-      db.query(sqlExist, [req.session.cartId])
-        .then(result => {
-          const cartContent = result.rows;
-          res.status(200).json(cartContent);
-        })
-    );
-  }
+  const values = [req.session.cartId];
+  db.query(text, values)
+    .then(data => res.json(data.rows))
+    .catch(err => next(err));
 });
 
 app.post('/api/cart', (req, res, next) => {
-  const productId = req.body.productId;
+  const { productId } = req.body;
   const sql = `
   select "price"
   from   "products
