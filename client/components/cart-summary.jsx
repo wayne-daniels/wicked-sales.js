@@ -2,34 +2,37 @@ import React from 'react';
 import CartSummaryItem from './cart-summary-item';
 
 export default function CartSummary(props) {
-  let total = 0;
-  let body = null;
   if (props.cart.length === 0) {
-    body = <div className="row"><span>Your Cart is empty! Buy Something!</span></div>;
-  } else {
-    body = <div className="row mb-3">
-      {
-        props.items.map(product => {
-          total = total + product.price;
-          return (
-            <CartSummaryItem
-              key={product.cartItemId}
-              img={product.image}
-              name={product.name}
-              price={product.price}
-              short={product.shortDescription}
-            />
-          );
-        })
-      }
-    </div>;
+    return (
+      <div className="bg-warning">
+        <div
+          className="text-primary mb-4 pt-2 px-0 btn d-flex justify-content-center"
+          onClick={() => props.setView('catalog', {})}>
+          &lt; Back to Catalog
+        </div>
+        <h3 className="text-center text-danger pb-5">Your cart is empty</h3>
+      </div>
+    );
   }
+
+  const cartItems = props.cart.map(item =>
+    <CartSummaryItem item={item} key={item.productId} />
+  );
+  const totalPrice = props.cart.reduce((acc, cur) => acc + cur.price, 0);
+
   return (
-    <div className="container">
-      <a onClick={() => props.setView('catalog', {})} className="row my-3 back text-muted">&lt; Back to catalog</a>
-      <h2 className="row mb-4">My Cart</h2>
-      {body}
-      <h3 className="row pb-3">Item Total:${total}</h3>
+    <div className="row mx-0">
+      <div className="d-flex flex-column col-7 mx-auto">
+        <div className="text-muted mb-4 pt-0 px-0 btn d-flex justify-content-start"
+          onClick={() => props.setView('catalog', {})}>
+          &lt; Back to Catalog
+        </div>
+        <h2 className="mb-4">My Cart</h2>
+        {cartItems}
+        <div className="mt-3 mb-5 d-flex justify-content-between">
+          <h5 className="text-muted d-flex align-items-center">Total Price: ${(totalPrice) * 0.01.toFixed(2)}</h5>
+        </div>
+      </div>
     </div>
   );
 }
