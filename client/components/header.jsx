@@ -15,7 +15,7 @@ export default function Header(props) {
       </div>
       <div className="row col-2">
         <a className="text-white back mt-1">{`${props.cartItemCount} ${itemNumber}`}</a>
-        <i className="fas fa-shopping-cart fa-2x text-white mr-5" onClick={() => props.setView('cart', {})}></i>
+        <i className=" hover fas fa-shopping-cart fa-2x text-white mr-5" onClick={() => props.setView('cart', {})}></i>
       </div>
     </div>
   );
