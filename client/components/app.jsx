@@ -115,7 +115,7 @@ export default class App extends React.Component {
       );
     } else if (viewName === 'checkout') {
       return (
-        <div className="w-100 bg-light">
+        <div className="w-100 bg-light justify">
           <Header setView={this.setView}
             cartItemCount={this.state.cart.length} />
           <CheckoutForm cart={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
