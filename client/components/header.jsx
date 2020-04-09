@@ -9,8 +9,8 @@ export default function Header(props) {
   }
   return (
     <div className="row justify-content-between pt-3 pb-2 mt-2 bg-dark">
-      <div className="row col-3 ml-3">
-        <h4 className="text-white ml-4"><i className="fas fa-dollar-sign fa-lg mr-2 mb-2
+      <div className="row col-3">
+        <h4 className="text-white"><i className="fas fa-dollar-sign fa-lg mr-2 mb-2
         " />Wicked Sales</h4>
       </div>
       <div className="row col-2">
