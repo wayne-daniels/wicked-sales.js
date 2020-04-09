@@ -36,8 +36,8 @@ A Full-Stack Node.js and React Shopping Cart App.
 
 Clone this repository.
 ``` shell
-git clone https://github.com/wayne-daniels/wicked-sales-js.git
-cd wicked-sales-js
+git clone https://github.com/wayne-daniels/wicked-sales.js.git
+cd wicked-sales.js
 ```
 
 Install all dependencies with NPM.
