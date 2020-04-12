@@ -10,6 +10,8 @@ h4 {
   padding-left: 8rem;
 }
 
-.hover {
-  cursor:pointer;
+.inner-shadow:hover {
+   -moz-box-shadow:    inset 0 0 10px #f7df0c;
+   -webkit-box-shadow: inset 0 0 10px #f78606;
+   box-shadow:         inset 0 0 10px #f80303;
 }
