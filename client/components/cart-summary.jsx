@@ -30,7 +30,7 @@ export default function CartSummary(props) {
         <h2 className="mb-4">My Cart</h2>
         {cartItems}
         <div className="mt-3 mb-5 d-flex justify-content-between">
-          <h5 className="text-muted d-flex align-items-center">Total Price: <span className="text-success">${(totalPrice) * 0.01.toFixed(2)}</span></h5>
+          <h5 className="text-muted d-flex align-items-center">Total Price: <span className="text-success">${((totalPrice) * 0.01).toFixed(2)}</span></h5>
           <div>
             <button type="button" className="btn btn-success btn-lg" onClick={() => props.setView('checkout', {})}>Checkout</button>
           </div>
