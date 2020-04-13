@@ -11,7 +11,7 @@ h4 {
 }
 
 .inner-shadow:hover {
-   -moz-box-shadow:    inset 0 0 10px #f7df0c;
-   -webkit-box-shadow: inset 0 0 10px #f78606;
+   -moz-box-shadow:    inset 0 0 10px #f80303;
+   -webkit-box-shadow: inset 0 0 10px #f80303;
    box-shadow:         inset 0 0 10px #f80303;
 }
