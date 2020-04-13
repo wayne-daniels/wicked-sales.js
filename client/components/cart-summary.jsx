@@ -7,6 +7,7 @@ export default function CartSummary(props) {
       <div className="bg-warning">
         <div
           className="text-primary mb-4 pt-2 px-0 btn d-flex justify-content-center"
+          style={{ cursor: 'pointer' }}
           onClick={() => props.setView('catalog', {})}>
           &lt; Back to Catalog
         </div>
@@ -21,9 +22,10 @@ export default function CartSummary(props) {
   const totalPrice = props.cart.reduce((acc, cur) => acc + cur.price, 0);
 
   return (
-    <div className="row mx-0">
+    <div className="row">
       <div className="d-flex flex-column col-7 mx-auto">
         <div className="text-muted mb-4 pt-0 px-0 btn d-flex justify-content-start"
+          style={{ cursor: 'pointer' }}
           onClick={() => props.setView('catalog', {})}>
           &lt; Back to Catalog
         </div>
