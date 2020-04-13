@@ -89,7 +89,7 @@ export default class App extends React.Component {
     const viewName = this.state.view.name;
     if (viewName === 'catalog') {
       return (
-        <div className="w-100 bg-light">
+        <div className="vw-100 bg-light">
           <Header setView={this.setView}
             cartItemCount={this.state.cart.length} />
           <ProductList setView={this.setView} />
@@ -107,7 +107,7 @@ export default class App extends React.Component {
       );
     } else if (viewName === 'cart') {
       return (
-        <div className="w-100 bg-light">
+        <div className="vw-100 bg-light">
           <Header setView={this.setView}
             cartItemCount={this.state.cart.length} />
           <CartSummary cart={this.state.cart} setView={this.setView} />
@@ -115,7 +115,7 @@ export default class App extends React.Component {
       );
     } else if (viewName === 'checkout') {
       return (
-        <div className="w-100 bg-light justify">
+        <div className="vw-100 bg-light justify">
           <Header setView={this.setView}
             cartItemCount={this.state.cart.length} />
           <CheckoutForm cart={this.state.cart} setView={this.setView} placeOrder={this.placeOrder}/>
