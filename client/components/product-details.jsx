@@ -28,7 +28,7 @@ export default class ProductDetails extends React.Component {
     if (!this.state.product) return null;
     return (
       <div className="row mt-5 mx-0">
-        <div className="card col-7 mx-auto" id={this.props.productId}>
+        <div className="details card col-11 mx-auto" id={this.props.productId}>
           <div className="hover text-muted my-3 px-0 btn d-flex justify-content-start" onClick={this.setViewCat} style={{ cursor: 'pointer' }}>&lt; Back to catalog</div>
           <div className="row">
             <img
