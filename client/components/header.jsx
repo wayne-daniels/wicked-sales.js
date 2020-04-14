@@ -8,18 +8,17 @@ export default function Header(props) {
     itemNumber = 'items';
   }
   return (
-    <div className="vw-100 bg-dark">
-      <div className="row justify-content-between pt-3 pb-2">
-        <div className="row col-3">
-          <h4 className="text-white"><i className="fas fa-dollar-sign fa-lg mr-2 mb-2
-        " />Wicked Sales</h4>
-        </div>
-        <div className="row col-2">
-          <a className="text-white back mt-1">{`${props.cartItemCount} ${itemNumber}`}</a>
-          <i className="fas fa-shopping-cart fa-2x text-white mr-5" style={{ cursor: 'pointer' }}
-            onClick={() => props.setView('cart', {})}></i>
-        </div>
+    <div className="vw-100 bg-dark row pt-3 pb-2">
+      <div className="col-1"></div>
+      <div className="col-5">
+        <h4 className="text-white"><i className="fas fa-dollar-sign fa-lg mr-2 mb-2" />Wicked Sales</h4>
       </div>
+      <div className="col-5 text-right px-0">
+        <a className="text-white back mx-3">{`${props.cartItemCount} ${itemNumber}`}</a>
+        <i className="fas fa-shopping-cart fa-2x text-white" style={{ cursor: 'pointer' }}
+          onClick={() => props.setView('cart', {})}></i>
+      </div>
+      <div className="col-1"></div>
     </div>
   );
 }
