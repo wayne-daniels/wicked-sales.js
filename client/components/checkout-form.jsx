@@ -34,7 +34,7 @@ export default class CheckoutForm extends React.Component {
       <div className="row mx-0">
         <div className="col-7 mx-auto d-flex flex-column">
           <h2 className="mb-4">My Cart</h2>
-          <h5 className="d-flex align-items-center text-muted mb-4">Total Purchase: ${(this.getTotalPurchase()) * 0.01.toFixed(2)}</h5>
+          <h5 className="d-flex align-items-center text-muted mb-4">Total Purchase: ${(this.getTotalPurchase() * 0.01).toFixed(2)}</h5>
           <form className="d-flex flex-column">
             <label htmlFor="name">Name</label>
             <input type="text" id="name" className="mb-4" value={this.state.name} onChange={this.handleChange} />
