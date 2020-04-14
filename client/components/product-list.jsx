@@ -41,7 +41,7 @@ export default class ProductList extends React.Component {
 
     return (
       <div className="w-100">
-        <div className="cat-item row row-cols-1 row-cols-md-3 d-flex justify-content-center">
+        <div className="cat-item row row-cols-1 row-cols-3 d-flex justify-content-center">
           {products}
         </div>
       </div>
